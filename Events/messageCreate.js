@@ -1,5 +1,5 @@
 const { Client, Message } = require("discord.js-selfbot-v13");
-const configs = require("../Configs/configs");
+const { configs } = require("../Configs/configs");
 const { commandInfo } = require("../Utils/Logger");
 
 module.exports = {
