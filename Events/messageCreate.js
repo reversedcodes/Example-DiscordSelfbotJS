@@ -22,8 +22,8 @@ module.exports = {
                 return;
             }
 
-
             const command = client.commands.get(commandName);
+
             if(!command) {
                 console.log("Command " + commandName + " not found.");
                 return;
