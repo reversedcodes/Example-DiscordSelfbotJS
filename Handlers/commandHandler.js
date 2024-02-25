@@ -2,8 +2,6 @@ const fs = require("fs");
 const { commandInfo } = require("../Utils/Logger");
 
 async function commandHandler(client) {
-
-    const table = new ascii().setHeading("Commands", "Status");
     const files = fs.readdirSync("./Commands").filter((file) => file.endsWith(".js"));
 
     for(const file of files) { 

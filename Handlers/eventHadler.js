@@ -2,8 +2,6 @@ const fs = require("fs");
 const { eventsInfo } = require("../Utils/Logger");
 
 async function eventHandler(client) {
-
-    const table = new ascii().setHeading("Events", "Status");
     const files = fs.readdirSync("./Events").filter((file) => file.endsWith(".js"));
 
     for(const file of files) { 
