@@ -11,10 +11,18 @@ module.exports = {
     async execute(ctx, client) {
         let content = ctx.content;
 
-        if(ctx.author.id == client.user.id) return;
-
         if(content.startsWith(configs.prefix)) {
-            ctx.cancel = true;
+
+            if(ctx.author.id == client.user.id) {
+                if(configs.self_use_command == false) {
+                    return;
+                }
+            } else {
+                if(configs.can_use_user_command == false) {
+                    return;
+                }
+            }
+
             const args = content.slice(configs.prefix.length).trim().split(/ +/g);
             const commandName = args.shift().toLowerCase();
 
