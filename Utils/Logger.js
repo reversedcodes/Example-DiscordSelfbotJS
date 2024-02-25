@@ -25,8 +25,15 @@ const logger = winston.createLogger({
   ],
 });
 
+
 module.exports = { 
     getLogger: () => {
         return logger;
+    },
+    commandInfo: (content) => {
+        return this.getLogger().info(chalk.yellow("[COMMANDS] ") + content);
+    },
+    eventsInfo: () => {
+        return this.getLogger().info(chalk.yellow("[EVENTS] ") + content);
     }
 }
