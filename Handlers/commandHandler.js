@@ -1,5 +1,5 @@
 const fs = require("fs");
-const ascii = require("ascii-table");
+const { commandInfo } = require("../Utils/Logger");
 
 async function commandHandler(client) {
 
@@ -10,14 +10,14 @@ async function commandHandler(client) {
         const name = file.slice(0, -3);
         const command = require(`../Commands/${file}`);
         client.commands.set(name, command);
+        commandInfo(`${name} Online.`);
         const aliases = command.aliases;
         for(let i = 0; i < aliases.length; i++) { 
             const alias = aliases[i];
             client.commands.set(alias, command);
         }
-        table.addRow(name, "Online");
     }
-    return console.log(table.toString());
+    return;
 }
 
 module.exports = { commandHandler };

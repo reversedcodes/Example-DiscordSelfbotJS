@@ -1,5 +1,5 @@
 const fs = require("fs");
-const ascii = require("ascii-table");
+const { eventsInfo } = require("../Utils/Logger");
 
 async function eventHandler(client) {
 
@@ -8,16 +8,15 @@ async function eventHandler(client) {
 
     for(const file of files) { 
         const name = file.slice(0, -3);
+        eventsInfo(`${name} Online.`);
         const event = require(`../Events/${file}`);
         if(event.once) {
             client.once(name, async (...args) => { event.execute(...args, client) });
         } else {
             client.on(name, async (...args) => {event.execute(...args, client)});
         }
-
-        table.addRow(file.slice(0, -3), "Online");
     }
-    return console.log(table.toString());
+    return;
 }
 
 module.exports = { eventHandler };

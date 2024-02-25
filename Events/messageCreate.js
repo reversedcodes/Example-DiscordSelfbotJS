@@ -1,5 +1,6 @@
 const { Client, Message } = require("discord.js-selfbot-v13");
 const configs = require("../Configs/configs");
+const { commandInfo } = require("../Utils/Logger");
 
 module.exports = {
     once: false,
@@ -18,14 +19,14 @@ module.exports = {
             const commandName = args.shift().toLowerCase();
 
             if(commandName.length == 0) {
-                console.log("Type your command.");
+                commandInfo("None not found.");
                 return;
             }
 
             const command = client.commands.get(commandName);
 
             if(!command) {
-                console.log("Command " + commandName + " not found.");
+                commandInfo(commandName + " not found.")
                 return;
             }
 
