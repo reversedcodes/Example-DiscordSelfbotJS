@@ -2,7 +2,6 @@ const { Client, Message } = require("discord.js-selfbot-v13");
 const configs = require("../Configs/configs");
 
 module.exports = {
-    event: "messageCreate",
     once: false,
     /**
      * @param {Message} ctx 
