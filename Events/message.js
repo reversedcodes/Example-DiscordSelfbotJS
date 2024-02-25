@@ -11,6 +11,8 @@ module.exports = {
     async execute(ctx, client) {
         let content = ctx.content;
 
+        if(ctx.author.id == client.user.id) return;
+
         if(content.startsWith(configs.prefix)) {
             ctx.cancel = true;
             const args = content.slice(configs.prefix.length).trim().split(/ +/g);
