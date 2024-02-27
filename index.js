@@ -14,7 +14,4 @@ commandHandler(client);
 
 client.once("ready", () => eventsInfo(`Logged in as ${client.user.username}!`));
 
-client.login(configs.token).then(() => {
-    eventHandler(client);
-    commandHandler(client);
-})
+client.login(configs.token);
