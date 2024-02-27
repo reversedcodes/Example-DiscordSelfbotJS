@@ -31,6 +31,7 @@ function getLogger() {
 
 
 module.exports = { 
+    getLogger: getLogger,
     commandInfo: (content) => {
         return getLogger().info(chalk.yellow("[COMMANDS] ") + content);
     },
